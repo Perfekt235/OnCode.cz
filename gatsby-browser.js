@@ -5,3 +5,12 @@
  */
 
 // You can delete this file if you're not using it
+import "./src/styles/global.css"
+
+export const onInitialClientRender = () => {
+    const pathname = window.location.pathname;
+    if (pathname === "/") {
+      window.location.replace("/Load"); // Přesměrování na landing page
+    }
+  };
+

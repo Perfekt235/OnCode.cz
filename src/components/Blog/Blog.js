@@ -1,12 +1,11 @@
 import React from 'react'
 
-const index = () => {
+const Blog = () => {
   return (
     <div>
-        
+      
     </div>
   )
 }
 
-export default index
-    
+export default Blog

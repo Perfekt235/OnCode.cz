@@ -1,12 +1,11 @@
 import React from 'react'
 
-const index = () => {
+const Portfolio = () => {
   return (
     <div>
-        
+      
     </div>
   )
 }
 
-export default index
-    
+export default Portfolio

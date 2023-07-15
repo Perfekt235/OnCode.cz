@@ -1,12 +1,11 @@
 import React from 'react'
 
-const index = () => {
+const Services = () => {
   return (
     <div>
-        
+      
     </div>
   )
 }
 
-export default index
-    
+export default Services
