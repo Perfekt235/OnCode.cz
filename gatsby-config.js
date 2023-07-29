@@ -9,22 +9,24 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    defaultTitle: `WebDesign Studio`,
+    defaultDescription: `Jsme Webdesign studio zaměřené na marketing.`,
+    defaultImage: null, // nahraďte "/cesta/do/vašeho/výchozího/obrázku.jpg" skutečnou cestou k obrázku
+    siteUrl: `https://barberggirl.netlify.app/`, // nahraďte "https://www.vaše-webová-stránka.cz" skutečnou adresou vaší webové stránky
+    author: `Vaše jméno nebo název společnosti`, // nahraďte "Vaše jméno nebo název společnosti" skutečným jménem nebo názvem společnosti
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto', 'Roboto Slab']
+          families: ['Roboto', 'Roboto Slab', 'Roboto Mono']
         }
       }
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

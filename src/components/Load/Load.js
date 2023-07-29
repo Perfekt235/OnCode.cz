@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import colors from '../colors';
-import Logo from '../images/Logo';
-import { useSpring, animated, config } from 'react-spring';
+import colors from '../../colors';
+import Logo from '../../images/Logo';
+import { useSpring, animated,  } from 'react-spring';
+import { isFirefox } from 'react-device-detect'
 
 const AnimatedLogo = animated(Logo);
 
 const FlexCont = styled.div`
   height: 100vh;
-  width: 100%;
-  background-color: ${colors.DarknestBlue};
+  background-color: #0a192f;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+
+
 `;
 
 const Div = styled(animated.div)`
   display: flex;
   overflow: hidden;
-  align-items: center
+  align-items: center;
 `;
 
 const H1 = styled.h1`
+  position: relative;
+  z-index: 5;
   font-size: 60px;
   position: relative;
-  left: 15px;
+  left: 12px;
   font-family: 'Roboto';
   color: ${colors.White};
 `
@@ -43,40 +48,33 @@ const H3 = styled(animated.h3)`
   font-family: 'Roboto';
   position: relative;
   color: #a8fff7;
-  bottom: 11px;
+  bottom: 35px;
   left: 45px;
-    letter-spacing: 4px;
+  letter-spacing: 4px;
+
+  ${isFirefox && `
+    bottom: 35px;
+  `}
 `
 
-const Load = () => {
+const Load = ({setAnimationsFinished}) => {
   const [rotationComplete, setRotationComplete] = useState(false);
   const [widthComplete, setWidthComplete] = useState(false)
   const [word1, setWord1] = useState("")
   const [word2, setWord2] = useState("")
   const [blinking, setBlinking] = useState(false);
-  const [allAnimationsFinished, setAllAnimationsFinished] = useState(false);
-
   
+  
+  
+
+  // prvotní sekvence animace která mění opacity z 0 na 1
   const loadStyles = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
     config: { duration: 2000 },
   });
 
-  const rotationStyles = useSpring({
-    from: { transform: 'rotate(0deg)' },
-    to: { transform: 'rotate(1080deg)' },
-    config: { duration: 3000 },
-    onRest: () => setRotationComplete(true),
-  });
-
-  const shrinkStyles = useSpring({
-    from: { width: '300px' },
-    to: rotationComplete ? { width: '80px' } : { width: '300px' },
-    config: { tension: 300, easing: 350 },
-    onRest: ()=> setWidthComplete(true)
-  });
-
+  //určuje změnu barvy svg při počátku načtení animace
   const colorStyles = useSpring({
     loop: true,
     from: { fill: '#009a91' },
@@ -89,6 +87,25 @@ const Load = () => {
     config: { duration: 1100 },
   });
 
+
+
+  // Animace která se spouští po dokončení loadStyles jedná se o rotaci svg
+  const rotationStyles = useSpring({
+    from: { transform: 'rotate(0deg)' },
+    to: { transform: 'rotate(720deg)' },
+    config: { duration: 2000, tension: 890 },
+    onRest: () => setRotationComplete(true),
+  });
+
+  // jakmile je rotace kompletní svg změní svoji width z 300px na 80px 
+  const shrinkStyles = useSpring({
+    from: { width: '300px' },
+    to: rotationComplete ? { width: '80px' } : { width: '300px' },
+    config: { tension: 300, easing: 350 },
+    onRest: ()=> setWidthComplete(true)
+  });
+
+  
   const blinkingStyles = useSpring({
     from: { opacity: 1 },
     to: async (next) => {
@@ -96,31 +113,21 @@ const Load = () => {
         await next({ opacity: 0, config: { duration: 500 } });
         await next({ opacity: 1, config: { duration: 500 } });
       }
-    }
+    },
+    
+    
   });
 
-  const scaleStyles = useSpring({
-    from: { transform: 'scale(1)' },
-    to: { transform: allAnimationsFinished ? 'scale(0)' : 'scale(1)' },
-    config: { duration: 500 },
-    onRest: () => {
-      if (allAnimationsFinished) {
-        window.location.href = "/Load";
-      }
-    },
-  });
+  
+
+
 
   useEffect(() => {
     if (!blinking && word2 === "ode") {
-      setAllAnimationsFinished(true);
+      
+      setTimeout(()=> setAnimationsFinished(true), 1000);
     }
-  }, [blinking, word2]);
-
-  useEffect(() => {
-    if (allAnimationsFinished) {
-      window.location.href = "/Load";
-    }
-  }, [allAnimationsFinished]);
+  }, [blinking, word2, setAnimationsFinished]);
 
 
   useEffect(() => {
@@ -149,7 +156,7 @@ const Load = () => {
   }, [widthComplete]);
 
   return (
-    <FlexCont style={scaleStyles}>
+    <FlexCont>
       <Div>
         <H1>{word1}</H1>
         <AnimatedLogo
@@ -158,6 +165,7 @@ const Load = () => {
             ...loadStyles,
             ...rotationStyles,
             ...shrinkStyles,
+            
           }}
         />
         <H2>{word2}</H2>
