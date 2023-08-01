@@ -3,7 +3,7 @@ import  styled from 'styled-components'
 import Logo from '../../images/Logo'
 import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring'
-import Analyze from './Analyze'
+import Analyze from '../Form/AnalyzeF/Analyze'
 import { device } from '../../mediaQuery'
 import { useWidth } from '../context/Width';
 // import { size } from '../../mediaQuery';
@@ -231,7 +231,7 @@ const Nav = () => {
           <LinkText to='/'>Blog</LinkText>
         </Li>
         <Li>
-          <LinkText to='/'>Služby</LinkText>
+          <LinkText to='/'>Řešení</LinkText>
         </Li>
       </Ul>
 

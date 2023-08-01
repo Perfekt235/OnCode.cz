@@ -56,6 +56,7 @@ const FlexDiv = styled.div`
     bottom: 0%;
     left: 14px;
     
+    
 
     @media(${device.tablet}){
         display: none;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { animated, useSpring} from 'react-spring'
-import Analyze from '../Nav/Analyze'
+import Analyze from '../Form/AnalyzeF/Analyze'
 
 
 
@@ -25,7 +25,7 @@ const FlexCont = styled.div`
 
     
     
-}
+
 `
 
 const Ul = styled.ul`

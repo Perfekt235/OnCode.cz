@@ -8,8 +8,8 @@ import Nav from '../components/Nav/Nav';
 import colors from '../colors';
 import SocialMedia from '../components/SocialLine/SocialMedia';
 import MailLine from '../components/SocialLine/MailLine';
-import FormBtn from '../components/Form/FormBtn/FormBtn';
 import { WidthProvider } from '../components/context/Width';
+// import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
 
 
 
@@ -17,7 +17,7 @@ import { WidthProvider } from '../components/context/Width';
 
 const BckgDiv = styled.div`
   background-color: ${colors.DarknestBlue};
-  height: 1355px;
+  min-height: 100%;
   overflow: hidden;
 
   /* Pro Webkit (Chrome, Safari) */
@@ -147,17 +147,16 @@ const Index = () => {
           <AnimatedBackground style={Opacity}>
        
           <WidthProvider>
-          
           <Header>
             <Nav/>
               <SocialMedia />
               <MailLine />
+              {/* <AnalyzeForm /> */}
               
           </Header>
 
           <Main>
             <Hero>
-              <FormBtn/>
             </Hero>
           </Main>
 
@@ -167,7 +166,8 @@ const Index = () => {
         
         </AnimatedBackground>
         }
-      </>
+
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/fbbc4770-b7d2-4c05-bd50-ac5bde9ac34d/cd.js" type="text/javascript" async></script>      </>
         
       
     

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../colors'
+import colors from '../../../colors'
 
     const Div = styled.div`
         display: flex;
@@ -19,7 +19,7 @@ import colors from '../../colors'
       font-size: 12px;
       overflow: hidden;
       transition: 0.2s;
-      background: ${props => props.bckgColr === "true" ? "rgb(0 0 0 / 19%)" : null};
+      background: ${props => props.bckgColr === "true" ? "rgb(0 0 0 / 19%)" : "#0a192f"};
       width: 190px;
       font-family: 'Roboto Mono';
       cursor: pointer;

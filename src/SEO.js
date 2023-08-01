@@ -53,7 +53,9 @@ const Seo = ({ title, description, image, url, lang="cz" }) => {
             content: metaUrl,
           },
       ]}
-    />
+    >
+      
+    </Helmet>
   );
 };
 
