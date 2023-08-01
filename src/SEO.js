@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
+
 const Seo = ({ title, description, image, url, lang="cz" }) => {
   const { site } = useStaticQuery(graphql`
     query {
@@ -54,7 +55,6 @@ const Seo = ({ title, description, image, url, lang="cz" }) => {
           },
       ]}
     >
-      
     </Helmet>
   );
 };
