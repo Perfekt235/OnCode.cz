@@ -137,7 +137,7 @@ const Index = () => {
   return (
     
       <>
-        <Seo title={"OnCode: Web & Marketing"} ogTitle={"OnCode.cz: Profesionální Web a Marketingové Služby"} ogDescription={"Spolupracujte s OnCode.cz na vývoji a optimalizaci vašich webových stránek. Využijte naše personalizované marketingové strategie a posuňte svůj digitální vliv na novou úroveň."} description={"Vývoj a optimalizace webových stránek s týmem OnCode. Naši odborníci na digitální marketing jsou připraveni posunout váš online byznys na novou úroveň."}  />
+        <Seo animationsFinished={animationsFinished}  title={"OnCode: Web & Marketing"} ogTitle={"OnCode.cz: Profesionální Web a Marketingové Služby"} ogDescription={"Spolupracujte s OnCode.cz na vývoji a optimalizaci vašich webových stránek. Využijte naše personalizované marketingové strategie a posuňte svůj digitální vliv na novou úroveň."} description={"Vývoj a optimalizace webových stránek s týmem OnCode. Naši odborníci na digitální marketing jsou připraveni posunout váš online byznys na novou úroveň."}  />
         
         {!showNav && (
           <AnimatedDiv style={{...animationProps, backgroundColor: "red"}}>
