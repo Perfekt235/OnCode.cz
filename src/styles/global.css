@@ -9,7 +9,7 @@ body {
     background: #0a192f;
 }
 
-#CybotCookiebotDialog{
-    height: 535px;
-    top: 65%;
+.cookiebanner {
+    height: 535px !important;
+    top: 65% !important;
 }
