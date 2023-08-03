@@ -9,7 +9,6 @@ import colors from '../colors';
 import SocialMedia from '../components/SocialLine/SocialMedia';
 import MailLine from '../components/SocialLine/MailLine';
 import { WidthProvider } from '../components/context/Width';
-import Cookiebot from 'react-cookiebot';
 // import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
 
 
@@ -147,10 +146,7 @@ const Index = () => {
         {showNav && 
           <AnimatedBackground style={Opacity}>
 
-              <Cookiebot
-                id="fbbc4770-b7d2-4c05-bd50-ac5bde9ac34d"
-                blockingMode="auto"
-              />
+           
           
           <WidthProvider>
           <Header>
