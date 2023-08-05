@@ -152,8 +152,8 @@ const AnalyzeForm = () => {
   
     return (
       <>
-        <Form action='' name="Analyze" netlify>
-          <Input type="hidden" name="form-name" value="contact" />
+        <Form action='' method='POST' name="Analyze" netlify>
+          <Input type="hidden" name="Analyze" value="Analyze" />
         
   
           {step === 0 ?
