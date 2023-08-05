@@ -152,7 +152,7 @@ const AnalyzeForm = () => {
   
     return (
       <>
-        <Form name="Analyze" method='POST' netlify>
+        <Form action='' name="Analyze" netlify>
           <Input type="hidden" name="form-name" value="contact" />
         
   
