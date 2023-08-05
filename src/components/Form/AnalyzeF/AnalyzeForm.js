@@ -1,109 +1,259 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-
-const Container = styled.div`
-    display: flex;
-    position: fixed;
-    z-index: 6;
-    top: 300px;
-    width: 58%;
-    left: 26%;
-    height: 508px;
-
-    
+import NameSVG from '../../../images/NameSVG'
+import PhoneSVG from '../../../images/PhoneSVG'
+import MailSVG from '../../../images/MailSVG'
 
 
 
-`
+
 
 const Form = styled.form`
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     display: flex;
-    height: 100%;
-    width: 500px;
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
 
+    &::before {
+        border-radius: 15px;
+        content: "";
+        width: 64%;
+        height: 613px;
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        background-color: #00000030;
+    }
+    
 `
 
-const Label = styled.label`
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Roboto';
-    padding: 10px;
-    color: white;
-`
 
 
 const Input = styled.input`
     height: 12px;
-    padding: 15px 12px;
-`
+    padding: 30px 12px;
+    width: 288px;
+    background: none;
+    border: 1px solid #466888;
+    font-size: 20px;
+    font-family: "Roboto Mono";
+    color: white;
+    `
 
-const Text = styled.textarea`
-    width: 287px;
-    height: 186px;
-    padding: 12px;
-`
+// const Text = styled.textarea`
+//     width: 287px;
+//     height: 186px;
+//     padding: 12px;
+    
+// `
 const Button = styled.button`
+    width: 151px;
+    height: 45px;
+    background: none;
+    color: rgb(126, 152, 175);
+    border: 1px solid #466888;
+    font-family: Roboto;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    letter-spacing: 1px;
+    position: relative;
+    border-radius: 15px;
+    z-index: 2;
+
+        &:hover {
+            color: rgb(0, 255, 215);
+            letter-spacing: 2px;
+            border: 1px solid rgb(0 178 150 / 65);
+            border-radius: 0px;
+        }
 
 `
+
+const FirstCont = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 278px;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 2;
+`
+
+const SecondCont = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 384px;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 2;
+`
+
+
+const DivCont = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1108px;
+    border: 1px solid rgb(0 255 215 / 30%);
+    padding: 50px;
+    height: 408px;
+    
+`
+
+
+
+
+const InputCont = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 388px;
+`
+
+
 
 
 const AnalyzeForm = () => {
-  return (
-    <Container>
-      <Form method='POST'>
-      <Input type="hidden" name="form-name" value="contact" />
+    const [step, setStep] = useState(0);
+    const [formData, setFormData] = useState({
+      name: '',
+      phone: '',
+      email: '',
+      facebook: '',
+      instagram: '',
+      youtube: '',
+      website: '',
+      info: ''
+    });
+    const [activeFields, setActiveFields] = useState({});
+  
+    const handleChange = e => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
 
-            <Label>
-                Jméno:
-                <Input type="text" name="name" required />
-            </Label>
+    const handleFocus = (event) => {
+        setActiveFields(prevState => ({ ...prevState, [event.target.name]: true }));
+      }
+    
+      const handleBlur = (event) => {
+        setActiveFields(prevState => ({ ...prevState, [event.target.name]: false }));
+      }
+    
+  
+    return (
+      <>
+        <Form name="Analyze" method='POST' data-netlify="true" >
+          <Input type="hidden" name="form-name" value="contact" />
+        
+  
+          {step === 0 ?
+          <DivCont>
+            <FirstCont>
+            <InputCont>
+                <Input 
+                  type="text" 
+                  placeholder='Jméno/Přijmení *' 
+                  name="name" 
+                  value={formData.name} 
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  required 
+                />
+                <NameSVG fill={activeFields.name || formData.name ? '#00ffd7' : '#7e98af'} />
+              </InputCont>
+              <InputCont>
+                <Input 
+                  type="tel" 
+                  placeholder='Telefoní číslo *' 
+                  name="phone" 
+                  value={formData.phone} 
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  required 
+                />
+                <PhoneSVG fill={activeFields.phone || formData.phone ? '#00ffd7' : '#7e98af'} />
+              </InputCont>
+              <InputCont>
+                <Input 
+                  type="email" 
+                  placeholder='Email *' 
+                  name="email" 
+                  value={formData.email} 
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  required 
+                />
+                <MailSVG fill={activeFields.email || formData.email ? '#00ffd7' : '#7e98af'} />
+              </InputCont>
+            
+            </FirstCont>
+                    <Button onClick={(event) => {
+                        event.preventDefault();
+                        setStep(1);
+                    }}>
+                        Pokračovat
+                    </Button>
 
-            <Label>
-                Příjmení:
-                <Input type="text" name="surname" required />
-            </Label>
+            </DivCont>
+            :
+            <DivCont>
+            <SecondCont>
+                <InputCont>
+                    <Input
+                        type="url"
+                        placeholder=' URL/Facebook' 
+                        name="facebook" 
+                        value={formData.facebook} 
+                        onChange={handleChange} />
+                </InputCont>
+                <InputCont>
+                    <Input 
+                        type="url" 
+                        placeholder=' URL/Instagram' 
+                        name="instagram" value={formData.instagram} 
+                        onChange={handleChange} />
+                </InputCont>
+                <InputCont>
+                    <Input 
+                        type="url" 
+                        placeholder=' URL/Youtube' 
+                        name="youtube" 
+                        value={formData.youtube} 
+                        onChange={handleChange} />
+                </InputCont>
+                <InputCont>
+                    <Input 
+                        placeholder=' URL/Web' 
+                        type="url" 
+                        name="website" 
+                        value={formData.website} 
+                        onChange={handleChange} />
+                </InputCont>
+                {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
+              
+            </SecondCont>
+            
+            <Button onClick={()=> setStep(0)}>Zpět</Button>
+            <Button type="submit">Odeslat</Button>
 
-            <Label>
-                Telefonní číslo:
-                <Input type="tel" name="phone" required />
-            </Label>
-
-            <Label>
-                Email:
-                <Input type="email" name="email" required />
-            </Label>
-
-            <Label>
-                Facebook:
-                <Input type="url" name="facebook" />
-            </Label>
-
-            <Label>
-                Instagram:
-                <Input type="url" name="instagram" />
-            </Label>
-
-            <Label>
-                YouTube:
-                <Input type="url" name="youtube" />
-            </Label>
-
-            <Label>
-                Adresa Webu:
-                <Input type="url" name="website" />
-            </Label>
-
-            <Label>
-                Další informace:
-                <Text name="info" />
-            </Label>
-
-                <Button type="submit">Odeslat</Button>
-      </Form>
-    </Container>
-  )
-}
-
-export default AnalyzeForm
+            </DivCont>
+          }
+        </Form>
+      </>
+    )
+  }
+  
+  export default AnalyzeForm

@@ -12,7 +12,7 @@ module.exports = {
     defaultTitle: `WebDesign Studio`,
     defaultDescription: `Jsme Webdesign studio zaměřené na marketing.`,
     defaultImage: null, // nahraďte "/cesta/do/vašeho/výchozího/obrázku.jpg" skutečnou cestou k obrázku
-    siteUrl: `https://barberggirl.netlify.app/`, // nahraďte "https://www.vaše-webová-stránka.cz" skutečnou adresou vaší webové stránky
+    siteUrl: `https://barbergirl.netlify.app/`, // nahraďte "https://www.vaše-webová-stránka.cz" skutečnou adresou vaší webové stránky
     author: `Vaše jméno nebo název společnosti`, // nahraďte "Vaše jméno nebo název společnosti" skutečným jménem nebo názvem společnosti
   },
   plugins: [
@@ -36,5 +36,8 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    
+    
+    
   ],
 }

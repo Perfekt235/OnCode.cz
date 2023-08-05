@@ -9,7 +9,7 @@ import colors from '../colors';
 import SocialMedia from '../components/SocialLine/SocialMedia';
 import MailLine from '../components/SocialLine/MailLine';
 import { WidthProvider } from '../components/context/Width';
-// import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
+import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
 
 
 
@@ -153,7 +153,7 @@ const Index = () => {
             <Nav/>
               <SocialMedia />
               <MailLine />
-              {/* <AnalyzeForm /> */}
+              <AnalyzeForm />
               
           </Header>
 
