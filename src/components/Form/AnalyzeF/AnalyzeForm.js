@@ -153,7 +153,10 @@ const AnalyzeForm = () => {
     return (
       <>
         <Form action="" method="POST" name="Analyze" data-netlify="true">
-            <Input type="hidden" name="form-name" value="Analyze" />
+        
+        <input type="hidden" name="form-name" value="Analyze" />
+
+        <input type="hidden" name="bot-field" />
         
   
           {step === 0 ?
@@ -250,7 +253,7 @@ const AnalyzeForm = () => {
             <Button type="submit">Odeslat</Button>
 
             </DivCont>
-          }
+            }
         </Form>
       </>
     )
