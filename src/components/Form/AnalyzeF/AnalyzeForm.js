@@ -201,7 +201,7 @@ const AnalyzeForm = () => {
             
             <FirstCont>
              
-                {/* <InputCont>
+                <InputCont>
                  <LikeSVG />
                     <Input
                         type="email"
@@ -224,7 +224,7 @@ const AnalyzeForm = () => {
                         name="website" 
                         value={formData.website} 
                         onChange={handleChange} />
-                </InputCont> */}
+                </InputCont>
                 <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />  
                 </FirstCont>
             <Button type="submit">Odeslat</Button>
