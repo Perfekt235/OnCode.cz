@@ -4,6 +4,8 @@ import NameSVG from '../../../images/NameSVG'
 import PhoneSVG from '../../../images/PhoneSVG'
 import MailSVG from '../../../images/MailSVG'
 import LikeSVG from '../../../images/LikeSVG'
+import InstaSVG from '../../../images/InstaSVG'
+import WebSVG from '../../../images/WebSVG'
 
 
 
@@ -48,26 +50,27 @@ const Input = styled.input`
 
     `
 
-const Text = styled.textarea`
-    width: 287px;
-    height: 186px;
-    padding: 12px;
+// const Text = styled.textarea`
+//     width: 287px;
+//     height: 186px;
+//     padding: 12px;
     
-`
+// `
 const Button = styled.button`
     width: 151px;
     height: 45px;
     background: none;
     color: rgb(126, 152, 175);
-    border: 1px solid #466888;
-    font-family: 'Roboto Mono';
+    border: 1px solid rgb(70, 104, 136);
+    font-family: "Roboto Mono";
     font-weight: 600;
     cursor: pointer;
-    transition: 0.5s ease-out;
+    transition: all 0.5s ease-out 0s;
     letter-spacing: 1px;
     position: relative;
     border-radius: 15px;
     z-index: 2;
+   
 
         &:hover {
             color: rgb(0, 255, 215);
@@ -95,8 +98,12 @@ const DivCont = styled.div`
   -webkit-box-align: center;
   align-items: center;
   width: 114%;
-  height: 408px;
+  min-height: 264px;
+  border-radius: 16px;
   margin: 0px auto;
+  box-shadow: inset 0px 0px 20px 8px #030e1e;
+
+      
     
 `
 
@@ -108,6 +115,29 @@ const InputCont = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 388px;
+`
+
+const Checkbox = styled.input.attrs({ type: 'checkbox' })`
+    transform: scale(1.5);
+    margin-right: 15px;
+    margin-bottom: 15px; 
+`;
+
+
+const GdprCont = styled.div`
+  position: absolute;
+  height: 454px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: center;
+}
+`
+const Label = styled.label`
+  color: #7e98af;
+  font-size: 15px;
+  font-family: "Roboto";
 `
 
 
@@ -194,40 +224,55 @@ const AnalyzeForm = () => {
               </InputCont>
             
             </FirstCont>
-                   
+                
 
-          
+            <GdprCont>
+              <Label>
+              <Checkbox name='GDPR' type="checkbox" required/>
+                
+                Souhlasím s podmínkami a pravidly použití
+              </Label>
+                    <Button type="submit">Odeslat</Button>
+           </GdprCont>
             
             
             <FirstCont>
              
                 <InputCont>
-                 <LikeSVG />
+                 <LikeSVG fill={activeFields.facebook || formData.facebook ? '#00ffd7' : '#7e98af'}  />
                     <Input
                         type="url"
                         placeholder=' URL/Facebook' 
                         name="facebook" 
                         value={formData.facebook} 
-                        onChange={handleChange} />
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}/>
                 </InputCont>
                 <InputCont>
+                  <InstaSVG stroke={activeFields.instagram || formData.instagram ? '#00ffd7' : '#7e98af'} />
                     <Input 
                         type="url" 
                         placeholder=' URL/Instagram' 
                         name="instagram" value={formData.instagram} 
-                        onChange={handleChange} />
+                        onChange={handleChange} 
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}/>
                 </InputCont>
                 <InputCont>
+                  <WebSVG fill={activeFields.website || formData.website ? '#00ffd7' : '#7e98af'} />
                     <Input 
                         placeholder=' URL/Web' 
                         type="url" 
                         name="website" 
                         value={formData.website} 
-                        onChange={handleChange} />
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}/>
                 </InputCont>
-                <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />  
+                {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
                 </FirstCont>
-            <Button type="submit">Odeslat</Button>
+          
 
             </DivCont>
             

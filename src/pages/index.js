@@ -143,7 +143,7 @@ const Index = () => {
             <Load animationsFinished={animationsFinished} setAnimationsFinished={setAnimationsFinished} />
           </AnimatedDiv>
         )}
-        <AnalyzeForm />
+        
         {showNav && 
           <AnimatedBackground style={Opacity}>
 
@@ -154,6 +154,7 @@ const Index = () => {
             <Nav/>
               <SocialMedia />
               <MailLine />
+              <AnalyzeForm />
               
               
               
