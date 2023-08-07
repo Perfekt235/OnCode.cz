@@ -203,7 +203,7 @@ const AnalyzeForm = () => {
                 <InputCont>
                  <LikeSVG />
                     <Input
-                        type="url"
+                        type="text"
                         placeholder=' URL/Facebook' 
                         name="facebook" 
                         value={formData.facebook} 
@@ -211,7 +211,7 @@ const AnalyzeForm = () => {
                 </InputCont>
                 <InputCont>
                     <Input 
-                        type="url" 
+                        type="text" 
                         placeholder=' URL/Instagram' 
                         name="instagram" value={formData.instagram} 
                         onChange={handleChange} />
@@ -219,7 +219,7 @@ const AnalyzeForm = () => {
                 <InputCont>
                     <Input 
                         placeholder=' URL/Web' 
-                        type="url" 
+                        type="text" 
                         name="website" 
                         value={formData.website} 
                         onChange={handleChange} />
