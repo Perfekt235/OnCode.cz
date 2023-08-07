@@ -173,16 +173,8 @@ const AnalyzeForm = () => {
                 />
                 <MailSVG fill={activeFields.email ? '#00ffd7' : '#7e98af'} />
               </InputCont>
-            
-            </FirstCont>
-                   
 
-          
-            
-            
-            <FirstCont>
-
-              <Input type="text"/>
+              <Input name='name2' type="text"/>
                 {/* <InputCont>
                  <LikeSVG />
                     <Input
