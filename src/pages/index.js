@@ -137,7 +137,7 @@ const Index = () => {
     
       <>
         <Seo animationsFinished={animationsFinished}  title={"OnCode: Web & Marketing"} ogTitle={"OnCode.cz: Profesionální Web a Marketingové Služby"} ogDescription={"Spolupracujte s OnCode.cz na vývoji a optimalizaci vašich webových stránek. Využijte naše personalizované marketingové strategie a posuňte svůj digitální vliv na novou úroveň."} description={"Vývoj a optimalizace webových stránek s týmem OnCode. Naši odborníci na digitální marketing jsou připraveni posunout váš online byznys na novou úroveň."}  />
-        <AnalyzeForm />
+        
         {!showNav && (
           <AnimatedDiv style={{...animationProps, backgroundColor: "red"}}>
             <Load animationsFinished={animationsFinished} setAnimationsFinished={setAnimationsFinished} />
@@ -153,6 +153,7 @@ const Index = () => {
             <Nav/>
               <SocialMedia />
               <MailLine />
+              <AnalyzeForm />
               
               
           </Header>
@@ -168,6 +169,7 @@ const Index = () => {
         
         </AnimatedBackground>
          } 
+         
  </>
         
       

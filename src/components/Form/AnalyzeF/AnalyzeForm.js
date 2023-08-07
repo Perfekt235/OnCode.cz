@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NameSVG from '../../../images/NameSVG'
 import PhoneSVG from '../../../images/PhoneSVG'
 import MailSVG from '../../../images/MailSVG'
+import LikeSVG from '../../../images/LikeSVG'
 
 
 
@@ -21,10 +22,9 @@ const Form = styled.form`
     margin: auto;
 
     &::before {
-        border-radius: 15px;
         content: "";
-        width: 64%;
-        height: 613px;
+        width: 100%;
+        height: 483px;
         position: fixed;
         left: 0px;
         right: 0px;
@@ -37,14 +37,15 @@ const Form = styled.form`
 
 
 const Input = styled.input`
-    height: 12px;
-    padding: 30px 12px;
-    width: 288px;
-    background: none;
-    border: 1px solid #466888;
-    font-size: 20px;
-    font-family: "Roboto Mono";
-    color: white;
+  height: 38px;
+  padding: 0px 8px;
+  width: 231px;
+  background: none;
+  border: 1px solid rgb(70, 104, 136);
+  font-size: 14px;
+  font-family: "Roboto Mono";
+  color: white;
+
     `
 
 // const Text = styled.textarea`
@@ -59,7 +60,7 @@ const Button = styled.button`
     background: none;
     color: rgb(126, 152, 175);
     border: 1px solid #466888;
-    font-family: Roboto;
+    font-family: 'Roboto Mono';
     font-weight: 600;
     cursor: pointer;
     transition: 0.5s ease-out;
@@ -72,7 +73,7 @@ const Button = styled.button`
             color: rgb(0, 255, 215);
             letter-spacing: 2px;
             border: 1px solid rgb(0 178 150 / 65);
-            border-radius: 0px;
+            padding: 10px;
         }
 
 `
@@ -86,24 +87,16 @@ const FirstCont = styled.div`
     z-index: 2;
 `
 
-const SecondCont = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 384px;
-    justify-content: space-evenly;
-    position: relative;
-    z-index: 2;
-`
 
 
 const DivCont = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1108px;
-    border: 1px solid rgb(0 255 215 / 30%);
-    padding: 50px;
-    height: 408px;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 114%;
+  height: 408px;
+  margin: 0px auto;
     
 `
 
@@ -121,14 +114,12 @@ const InputCont = styled.div`
 
 
 const AnalyzeForm = () => {
-    const [step, setStep] = useState(0);
     const [formData, setFormData] = useState({
       name: '',
       phone: '',
       email: '',
       facebook: '',
       instagram: '',
-      youtube: '',
       website: '',
       info: ''
     });
@@ -159,7 +150,7 @@ const AnalyzeForm = () => {
         <input type="hidden" name="bot-field" />
         
   
-          {step === 0 ?
+      
           <DivCont>
             <FirstCont>
             <InputCont>
@@ -203,18 +194,14 @@ const AnalyzeForm = () => {
               </InputCont>
             
             </FirstCont>
-                    <Button onClick={(event) => {
-                        event.preventDefault();
-                        setStep(1);
-                    }}>
-                        Pokračovat
-                    </Button>
+                   
 
-            </DivCont>
-            :
-            <DivCont>
-            <SecondCont>
+          
+            
+            
+            <FirstCont>
                 <InputCont>
+                 <LikeSVG />
                     <Input
                         type="url"
                         placeholder=' URL/Facebook' 
@@ -231,14 +218,6 @@ const AnalyzeForm = () => {
                 </InputCont>
                 <InputCont>
                     <Input 
-                        type="url" 
-                        placeholder=' URL/Youtube' 
-                        name="youtube" 
-                        value={formData.youtube} 
-                        onChange={handleChange} />
-                </InputCont>
-                <InputCont>
-                    <Input 
                         placeholder=' URL/Web' 
                         type="url" 
                         name="website" 
@@ -246,14 +225,11 @@ const AnalyzeForm = () => {
                         onChange={handleChange} />
                 </InputCont>
                 {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
-              
-            </SecondCont>
-            
-            <Button onClick={()=> setStep(0)}>Zpět</Button>
+                </FirstCont>
             <Button type="submit">Odeslat</Button>
 
             </DivCont>
-            }
+            
         </Form>
       </>
     )
