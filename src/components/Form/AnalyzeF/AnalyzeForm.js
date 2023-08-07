@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import NameSVG from '../../../images/NameSVG'
 import PhoneSVG from '../../../images/PhoneSVG'
 import MailSVG from '../../../images/MailSVG'
-import LikeSVG from '../../../images/LikeSVG'
+// import LikeSVG from '../../../images/LikeSVG'
 
 
 
@@ -114,23 +114,10 @@ const InputCont = styled.div`
 
 
 const AnalyzeForm = () => {
-    const [formData, setFormData] = useState({
-      name: '',
-      phone: '',
-      email: '',
-      facebook: '',
-      instagram: '',
-      website: '',
-      info: ''
-    });
+    
     const [activeFields, setActiveFields] = useState({});
   
-    const handleChange = e => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-      });
-    }
+  
 
     const handleFocus = (event) => {
         setActiveFields(prevState => ({ ...prevState, [event.target.name]: true }));
@@ -158,39 +145,33 @@ const AnalyzeForm = () => {
                   type="text" 
                   placeholder='Jméno/Přijmení *' 
                   name="name" 
-                  value={formData.name} 
-                  onChange={handleChange}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                   required 
                 />
-                <NameSVG fill={activeFields.name || formData.name ? '#00ffd7' : '#7e98af'} />
+                <NameSVG fill={activeFields.name  ? '#00ffd7' : '#7e98af'} />
               </InputCont>
               <InputCont>
                 <Input 
                   type="tel" 
                   placeholder='Telefoní číslo *' 
                   name="phone" 
-                  value={formData.phone} 
-                  onChange={handleChange}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                   required 
                 />
-                <PhoneSVG fill={activeFields.phone || formData.phone ? '#00ffd7' : '#7e98af'} />
+                <PhoneSVG fill={activeFields.phone ? '#00ffd7' : '#7e98af'} />
               </InputCont>
               <InputCont>
                 <Input 
                   type="email" 
                   placeholder='Email *' 
                   name="email" 
-                  value={formData.email} 
-                  onChange={handleChange}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                   required 
                 />
-                <MailSVG fill={activeFields.email || formData.email ? '#00ffd7' : '#7e98af'} />
+                <MailSVG fill={activeFields.email ? '#00ffd7' : '#7e98af'} />
               </InputCont>
             
             </FirstCont>
@@ -200,7 +181,9 @@ const AnalyzeForm = () => {
             
             
             <FirstCont>
-                <InputCont>
+
+              <Input type="text"/>
+                {/* <InputCont>
                  <LikeSVG />
                     <Input
                         type="email"
@@ -223,7 +206,7 @@ const AnalyzeForm = () => {
                         name="website" 
                         value={formData.website} 
                         onChange={handleChange} />
-                </InputCont>
+                </InputCont> */}
                 {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
                 </FirstCont>
             <Button type="submit">Odeslat</Button>
