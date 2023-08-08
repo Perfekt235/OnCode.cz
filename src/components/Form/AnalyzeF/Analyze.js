@@ -111,10 +111,10 @@ const slideUp = keyframes`
       }
 `
 
-const Analyze = ({ position, children, border, bckgColr, props }) => {
+const Analyze = ({ position, children, border, bckgColr, dataNav, handleClick}) => {
 
     const handleSendData = () => {
-        props.handleClick(!props.dataNav);
+        handleClick(!dataNav);
       }
 
   return (

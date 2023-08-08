@@ -101,9 +101,14 @@ const FirstCont = styled.div`
     box-shadow: 0px -11px 20px 6px rgb(10, 25, 47);
 
     @media(max-width: 1551px){
-      box-shadow: rgb(10 25 47) -15px 6px 14px 0px;
+      box-shadow: none;
 
     }
+
+    @media(max-width: 390px) {
+      width: 100%;
+    }
+
     @media(min-width:1551px){
         transform: translate(0px, -250px);
     }
@@ -128,8 +133,12 @@ const DivCont = styled.div`
 
   @media(max-width: 1551px) {
     justify-content: end;
-    min-width: 775px;
+    width: 390px;
     margin: none;
+  }
+
+  @media(max-width: 775px) {
+   
   }
 `
 
@@ -141,13 +150,24 @@ const InputCont = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 388px;
+
+
+    
+    @media(max-width: 390px) {
+      width: 100%;
+    }
+  
 `
 
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`
     transform: scale(1.5);
     margin-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     cursor: pointer;
+
+    media(max-width: 390px) {
+      width: 100%;
+    }
 `;
 
 
@@ -159,11 +179,13 @@ const GdprCont = styled.div`
   -webkit-box-pack: end;
   justify-content: flex-end;
   align-items: center;
-  opacity: 0;
+  opacity: 1;
 
   @media(max-width: 1551px) {
-    left: 43px;
-    bottom: 30px;
+    position: relative;
+    height: 101px;
+    width: 100%;
+    bottom: 16px;
   }
 }
 `
@@ -171,6 +193,11 @@ const Label = styled.label`
   color: #8492a6;
   font-size: 15px;
   font-family: "Roboto";
+
+  @media(max-width: 350px) {
+    font-size: 12px;
+  }
+  
 `
 
 
@@ -216,14 +243,22 @@ const AnalyzeForm = (props) => {
         delay: 100,
       })
 
+      const transformValue = () => {
+        if (width <= 1551) {
+          return props.dataNav ? "0px, 0px" : "-500px, 0px";
+        } else {
+          return props.dataNav ? "0px, 0px" : "0px, -250px";
+        }
+      };
+
       const FirstContDown = useSpring({
-        to: { transform: `translate(${props.dataNav ? "0px, 0px" : "0px, -250px"})` },
+        to: { transform: `translate(${transformValue()})` },
         config: { tension: 50, friction: 8 },
         delay: 500,
       })
 
       const SecFirstDown = useSpring({
-        to: { transform: `translate(${props.dataNav ? "0px, 0px" : "0px, -250px"})` },
+        to: { transform: `translate(${transformValue()})` },
         config: { tension: 50, friction: 8 },
         delay: 800,
       })
@@ -258,7 +293,7 @@ const AnalyzeForm = (props) => {
           <DivCont>
           <AnimatedFirstCont style={FirstContDown} >
 
-              <InputCont style={{ flexDirection: width <= 1551 ? "row-reverse" : "row" }}>
+              <InputCont>
                 <Input 
                   type="text" 
                   placeholder='Jméno/Přijmení *' 
@@ -271,7 +306,7 @@ const AnalyzeForm = (props) => {
                 />
                 <NameSVG fill={activeFields.name || formData.name ? '#00ffd7' : '#7e98af'} />
               </InputCont>
-              <InputCont style={{ flexDirection: width <= 1551 ? "row-reverse" : "row" }}>
+              <InputCont >
                 <Input 
                   type="tel" 
                   placeholder='Telefoní číslo *' 
@@ -284,7 +319,7 @@ const AnalyzeForm = (props) => {
                 />
                 <PhoneSVG fill={activeFields.phone || formData.phone ? '#00ffd7' : '#7e98af'} />
               </InputCont>
-              <InputCont style={{ flexDirection: width <= 1551 ? "row-reverse" : "row" }}>
+              <InputCont  >
                 <Input 
                   type="email" 
                   placeholder='Email *' 
@@ -299,14 +334,12 @@ const AnalyzeForm = (props) => {
               </InputCont>
             
             </AnimatedFirstCont>
-                
-
-          
+              
             
             
             <AnimatedFirstCont style={SecFirstDown} >
              
-                <InputCont>
+                <InputCont style={{flexDirection: width <= 1551 ? "row-reverse": "row"}} >
                  <LikeSVG fill={activeFields.facebook || formData.facebook ? '#00ffd7' : '#7e98af'}  />
                     <Input
                         type="url"
@@ -317,7 +350,7 @@ const AnalyzeForm = (props) => {
                         onFocus={handleFocus}
                         onBlur={handleBlur}/>
                 </InputCont>
-                <InputCont>
+                <InputCont style={{flexDirection: width <= 1551 ? "row-reverse": "row"}} >
                   <InstaSVG stroke={activeFields.instagram || formData.instagram ? '#00ffd7' : '#7e98af'} />
                     <Input 
                         type="url" 
@@ -327,7 +360,7 @@ const AnalyzeForm = (props) => {
                         onFocus={handleFocus}
                         onBlur={handleBlur}/>
                 </InputCont>
-                <InputCont>
+                <InputCont style={{flexDirection: width <= 1551 ? "row-reverse": "row"}}>
                   <WebSVG fill={activeFields.website || formData.website ? '#00ffd7' : '#7e98af'} />
                     <Input 
                         placeholder=' URL/Web' 
@@ -340,17 +373,17 @@ const AnalyzeForm = (props) => {
                 </InputCont>
                 {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
                 </AnimatedFirstCont>
-                {width <= 1551 ? 
-                  <GdprCont> 
-                    <Label>
-                      <Checkbox name='GDPR' type="checkbox" value="Souhlasím" required/>
-                        Souhlasím s podmínkami a pravidly použití
-                      </Label>
-                          <Button type="submit">Odeslat</Button>
-                  </GdprCont>
+                      { width < 1551 ?
+                      
+                      <AnimatedGDPR style={OpacityButt}>
+                            <Label>
+                            <Checkbox name='GDPR' type="checkbox" value="Souhlasím" required/>
+                              Souhlasím s podmínkami a pravidly použití
+                            </Label>
+                                  <Button type="submit">Odeslat</Button>
+                        </AnimatedGDPR>
               
-            :null}
-
+              : null}
             </DivCont>
             
         </AnimatedForm>

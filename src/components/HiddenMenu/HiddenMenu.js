@@ -39,9 +39,8 @@ const Li = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: #081426;
+
   
-  }
 
   
   
@@ -126,8 +125,8 @@ const HiddenMenu = (props) => {
           <AnimatedLinkText className='Priority' style={{...blinkAnimation}} to='/'>Řešení</AnimatedLinkText>
         </Li>
       </Ul>
-      <AnalyzeBtn>
-        <Analyze bckgColr="true" border="none">Analýza zdarma</Analyze>
+      <AnalyzeBtn onClick={props.handleOpen}>
+        <Analyze dataNav={props.dataNav} handleClick={props.handleClick} bckgColr="true" border="none">Analýza zdarma</Analyze>
       </AnalyzeBtn>
     </AnimatedHidden>
   )

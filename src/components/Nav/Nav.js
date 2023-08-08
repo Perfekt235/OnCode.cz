@@ -244,11 +244,11 @@ const Nav = (props) => {
         <animated.span style={bottomBar} />
       </Burger>
 
-      {width <= 768 ? <HiddenMenu isOpen={isOpen}></HiddenMenu> : null}
+      {width <= 768 ? <HiddenMenu handleOpen={handleOpen} dataNav={props.dataNav} handleClick={props.handleClick} isOpen={isOpen}></HiddenMenu> : null}
       
       
       <AnalyzeFlex>
-        <Analyze props={props} position='absolute'>Analýza zdarma</Analyze>
+        <Analyze  dataNav={props.dataNav} handleClick={props.handleClick} position='absolute'>Analýza zdarma</Analyze>
       </AnalyzeFlex>
       
     </AnimationOpacity>
