@@ -26,7 +26,7 @@ const Form = styled.form`
     &::before {
         content: "";
         width: 100%;
-        height: 100vh;
+        height: 50vh;
         position: fixed;
         left: 0px;
         right: 0px;
@@ -89,22 +89,23 @@ const FirstCont = styled.div`
     justify-content: space-evenly;
     position: relative;
     z-index: 2;
+    box-shadow: 0px -11px 20px 6px rgb(10, 25, 47);
 `
 
 
 
 const DivCont = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
   width: 114%;
   min-height: 264px;
   border-radius: 16px;
   margin: 0px auto;
-  box-shadow: rgb(3, 14, 30) 0px 0px 20px 12px inset;
   position: relative;
   z-index: 3;
+  background-image: linear-gradient(to top, rgb(0 174 175 / 20%) -28%, rgb(10 25 47) 100%);
     
 `
 
@@ -121,7 +122,8 @@ const InputCont = styled.div`
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`
     transform: scale(1.5);
     margin-right: 15px;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
+    cursor: pointer;
 `;
 
 
@@ -179,6 +181,14 @@ const AnalyzeForm = () => {
         <input type="hidden" name="form-name" value="Analyze" />
 
         <input type="hidden" name="bot-field" />
+
+        <GdprCont>
+              <Label>
+              <Checkbox name='GDPR' type="checkbox" value="Souhlasím" required/>
+                Souhlasím s podmínkami a pravidly použití
+              </Label>
+                    <Button type="submit">Odeslat</Button>
+           </GdprCont>
         
   
       
@@ -227,13 +237,7 @@ const AnalyzeForm = () => {
             </FirstCont>
                 
 
-            <GdprCont>
-              <Label>
-              <Checkbox name='GDPR' type="checkbox" value="Souhlasím" required/>
-                Souhlasím s podmínkami a pravidly použití
-              </Label>
-                    <Button type="submit">Odeslat</Button>
-           </GdprCont>
+          
             
             
             <FirstCont>
