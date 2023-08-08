@@ -100,6 +100,16 @@ const FirstCont = styled.div`
     z-index: 2;
     box-shadow: 0px -11px 20px 6px rgb(10, 25, 47);
 
+    @media(max-height: 780px) {
+      height: 200px;
+    }
+
+    @media(max-height: 600px) {
+      height: 168px;
+    }
+
+    
+
     @media(max-width: 1551px){
       box-shadow: none;
 
@@ -131,14 +141,19 @@ const DivCont = styled.div`
   background-image: linear-gradient(to top, rgb(0 174 175 / 20%) -28%, rgb(10 25 47) 100%);
   overflow: hidden;
 
+  @media(max-height: 667px) {
+    top: 50px;
+    
+  }
+
   @media(max-width: 1551px) {
     justify-content: end;
     width: 390px;
     margin: none;
   }
 
-  @media(max-width: 775px) {
-   
+  @media(max-height: 775px) {
+    min-height: 12.6rem;
   }
 `
 
