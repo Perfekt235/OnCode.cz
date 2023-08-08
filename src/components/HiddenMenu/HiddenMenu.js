@@ -98,7 +98,7 @@ const HiddenMenu = (props) => {
       color: '#64ffda', 
       from: { color: '#7e98af' },
       loop: { reverse: true },
-      config: {tension: 1000, friction: 120,},
+      config: { tension: 1000, friction: 120,},
     });
   }, [setBlinkAnimation]);
 

@@ -1,6 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
-import colors from '../../../colors'
+import styled, { keyframes } from 'styled-components'
+
+const slideRight = keyframes`
+  0% { left: -100%; }
+  100% { left: 100%; }
+`;
+
+const slideLeft = keyframes`
+  0% { right: -100%; }
+  100% { right: 100%; }
+`;
+
+const slideDown = keyframes`
+  0% { top: -100%; }
+  100% { top: 100%; }
+`;
+
+const slideUp = keyframes`
+  0% { bottom: -100%; }
+  100% { bottom: 100%; }
+`;
+
 
     const Div = styled.div`
         display: flex;
@@ -31,12 +51,6 @@ import colors from '../../../colors'
         border: none
       }
 
-      &:hover {
-          color: ${colors.DarknestBlue};
-          background: #00ffd7;
-          box-shadow: 0 0 10px #00ffd78f , 0 0 40px #00ffd78f , 0 0 80px #00ffd78f;
-          transition-delay: 1s;
-      }
 
       & span {
           position: absolute;
@@ -51,10 +65,7 @@ import colors from '../../../colors'
           background: linear-gradient(90deg,transparent,#00ffd7);
       }
 
-      &:hover span:nth-child(1) {
-          left: 100%;
-          transition: 1s;
-      }
+    
 
       & span:nth-child(3) {
           bottom: 0;
@@ -64,11 +75,7 @@ import colors from '../../../colors'
           background: linear-gradient(270deg,transparent,#00ffd7);
       }
 
-      &:hover span:nth-child(3) {
-          right: 100%;
-          transition: 1s;
-          transition-delay: 0.5s;
-      }
+     
 
       & span:nth-child(2) {
           top: -100%;
@@ -78,12 +85,7 @@ import colors from '../../../colors'
           background: linear-gradient(180deg,transparent,#00ffd7);
       }
 
-      &:hover span:nth-child(2) {
-          top: 100%;
-          transition: 1s;
-          transition-delay: 0.25s;
-      }
-
+      
       & span:nth-child(4) {
           bottom: -100%;
           left: 0;
@@ -92,17 +94,32 @@ import colors from '../../../colors'
           background: linear-gradient(360deg,transparent,#00ffd7);
       }
 
+      &:hover span:nth-child(1) {
+        animation: ${slideRight} 1s infinite;
+      }
+    
+      &:hover span:nth-child(3) {
+        animation: ${slideLeft} 1s 0.5s infinite;
+      }
+    
+      &:hover span:nth-child(2) {
+        animation: ${slideDown} 1s 0.25s infinite;
+      }
+    
       &:hover span:nth-child(4) {
-          bottom: 100%;
-          transition: 1s;
-          transition-delay: 0.75s;
+        animation: ${slideUp} 1s 0.75s infinite;
       }
 `
 
-const Analyze = ({ position, children, border, bckgColr }) => {
+const Analyze = ({ position, children, border, bckgColr, props }) => {
+
+    const handleSendData = () => {
+        props.handleClick(!props.dataNav);
+      }
+
   return (
     <Div>
-      <Button bckgColr={bckgColr} border={border} position={position}>
+      <Button onClick={handleSendData} bckgColr={bckgColr} border={border} position={position}>
           <span></span>
           <span></span>
           <span></span>

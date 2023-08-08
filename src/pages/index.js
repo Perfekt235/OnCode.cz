@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Load from '../components/Load/Load'
 import styled from 'styled-components'
-import { useSpring, animated} from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import Cookies from 'js-cookie'; 
 import Seo from '../SEO';
 import Nav from '../components/Nav/Nav';
@@ -77,6 +77,7 @@ const Footer = styled.footer`
 
 const AnimatedBackground = animated(BckgDiv)
 
+
 const AnimatedDiv = animated.div;
 
 
@@ -85,13 +86,20 @@ const Index = () => {
   const [animationsFinished, setAnimationsFinished] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
   const [showNav, setShowNav] = useState(false);
+  const [dataNav, setDataNav] = useState(false)
 
 
-
+  
   
 
   // zkontrolujeme, zda existuje cookie 'animationDone'
   
+
+  const handleClick = (e) => {
+    setDataNav(e)
+    
+    
+  }
 
   const animationProps = useSpring({
     from: { opacity: 1 },
@@ -151,13 +159,11 @@ const Index = () => {
           
           <WidthProvider>
           <Header>
-            <Nav/>
+            <Nav handleClick={(e) => handleClick(e)} dataNav={dataNav} />
               <SocialMedia />
               <MailLine />
-              <AnalyzeForm />
-              
-              
-              
+
+              <AnalyzeForm dataNav={dataNav} />
               
           </Header>
 

@@ -153,13 +153,16 @@ const AnimationOpacity = animated(Navigation);
 
 
 
-const Nav = () => {
+const Nav = (props) => {
   //isHover = filter blur logo
   // const [isHover, setIsHover] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   const { width } = useWidth()
+  
+  
+ 
 
+   
 
   const handleOpen = ()=> {
     setIsOpen((v) => !v)
@@ -245,7 +248,7 @@ const Nav = () => {
       
       
       <AnalyzeFlex>
-        <Analyze position='absolute'>Analýza zdarma</Analyze>
+        <Analyze props={props} position='absolute'>Analýza zdarma</Analyze>
       </AnalyzeFlex>
       
     </AnimationOpacity>
