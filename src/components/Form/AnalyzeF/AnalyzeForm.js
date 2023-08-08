@@ -26,12 +26,13 @@ const Form = styled.form`
     &::before {
         content: "";
         width: 100%;
-        height: 483px;
+        height: 100vh;
         position: fixed;
         left: 0px;
         right: 0px;
         margin: auto;
-        background-color: #00000030;
+        background-color: rgb(0 0 0 / 0%);
+        backdrop-filter: blur(3px);
     }
     
 `
@@ -101,9 +102,9 @@ const DivCont = styled.div`
   min-height: 264px;
   border-radius: 16px;
   margin: 0px auto;
-  box-shadow: inset 0px 0px 20px 8px #030e1e;
-
-      
+  box-shadow: rgb(3, 14, 30) 0px 0px 20px 12px inset;
+  position: relative;
+  z-index: 3;
     
 `
 
@@ -126,7 +127,7 @@ const Checkbox = styled.input.attrs({ type: 'checkbox' })`
 
 const GdprCont = styled.div`
   position: absolute;
-  height: 454px;
+  height: 480px;
   display: flex;
   flex-direction: column;
   -webkit-box-pack: end;
@@ -135,7 +136,7 @@ const GdprCont = styled.div`
 }
 `
 const Label = styled.label`
-  color: #7e98af;
+  color: #8492a6;
   font-size: 15px;
   font-family: "Roboto";
 `
@@ -228,8 +229,7 @@ const AnalyzeForm = () => {
 
             <GdprCont>
               <Label>
-              <Checkbox name='GDPR' type="checkbox" required/>
-                
+              <Checkbox name='GDPR' type="checkbox" value="Souhlasím" required/>
                 Souhlasím s podmínkami a pravidly použití
               </Label>
                     <Button type="submit">Odeslat</Button>
