@@ -24,7 +24,7 @@ import HiddenMenu from '../HiddenMenu/HiddenMenu'
 
 const Navigation = styled.nav`
   position: fixed;
-  z-index: 5;
+  z-index: 6;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -248,7 +248,7 @@ const Nav = (props) => {
       
       
       <AnalyzeFlex>
-        <Analyze  dataNav={props.dataNav} handleClick={props.handleClick} position='absolute'>Analýza zdarma</Analyze>
+        <Analyze  dataNav={props.dataNav} handleClick={props.handleClick} position='absolute'>Kontaktujte nás</Analyze>
       </AnalyzeFlex>
       
     </AnimationOpacity>

@@ -24,7 +24,7 @@ const slideUp = keyframes`
 
     const Div = styled.div`
         display: flex;
-        justify-content: center;
+        justify-content: ${[props => props.JCon === "start" ? "start" : "center"]};
         align-items: center;
     `
 
@@ -111,14 +111,14 @@ const slideUp = keyframes`
       }
 `
 
-const Analyze = ({ position, children, border, bckgColr, dataNav, handleClick}) => {
+const Analyze = ({ position, children, border, bckgColr, dataNav, handleClick, JCon}) => {
 
     const handleSendData = () => {
         handleClick(!dataNav);
       }
 
   return (
-    <Div>
+    <Div JCon={JCon}>
       <Button onClick={handleSendData} bckgColr={bckgColr} border={border} position={position}>
           <span></span>
           <span></span>

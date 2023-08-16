@@ -21,6 +21,7 @@ const Form = styled.form`
     height: 100vh;
     width: 100%;
     position: fixed;
+    z-index: 5;
     left: 0;
     right: 0;
     margin: auto;

@@ -10,6 +10,7 @@ import SocialMedia from '../components/SocialLine/SocialMedia';
 import MailLine from '../components/SocialLine/MailLine';
 import { WidthProvider } from '../components/context/Width';
 import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
+import Hero from '../components/Hero/Hero';
 
 
 
@@ -56,12 +57,6 @@ const Main = styled.main`
   margin: 0px auto;
   width: 100%;
   background-color: #0a192f;
-`
-const Hero = styled.section`
-  color: white;
-  width: 86%;
-  margin: 0 auto;
-  height: 100vh;
 `
 
 // const Article = styled.article`
@@ -162,14 +157,12 @@ const Index = () => {
             <Nav handleClick={(e) => handleClick(e)} dataNav={dataNav} />
               <SocialMedia />
               <MailLine />
-
               <AnalyzeForm dataNav={dataNav} />
               
           </Header>
 
           <Main>
-            <Hero>
-            </Hero>
+            <Hero />
           </Main>
 
           <Footer></Footer>
