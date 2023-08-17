@@ -32,17 +32,13 @@ const Form = styled.form`
     &::before {
         content: "";
         width: 100%;
-        height: 50vh;
+        height: 100vh;
         position: fixed;
         left: 0px;
         right: 0px;
         margin: auto;
         background-color: rgb(0 0 0 / 0%);
-        backdrop-filter: blur(3px);
-
-        @media(min-width: 1551px){
-          display: none;
-        }
+        backdrop-filter: blur(25px);    
     }
     
 `
@@ -58,15 +54,9 @@ const Input = styled.input`
   font-size: 14px;
   font-family: "Roboto Mono";
   color: white;
+`
 
-    `
 
-// const Text = styled.textarea`
-//     width: 287px;
-//     height: 186px;
-//     padding: 12px;
-    
-// `
 const Button = styled.button`
     width: 151px;
     height: 45px;
@@ -109,8 +99,6 @@ const FirstCont = styled.div`
       height: 168px;
     }
 
-    
-
     @media(max-width: 1551px){
       box-shadow: none;
 
@@ -144,7 +132,6 @@ const DivCont = styled.div`
 
   @media(max-height: 667px) {
     top: 50px;
-    
   }
 
   @media(max-width: 1551px) {
@@ -254,7 +241,7 @@ const AnalyzeForm = (props) => {
       }
 
       const IsShow = useSpring({
-        to: { transform: `translate(${props.dataNav ? "0px, 0px" : "0px, -825px"})` },
+        to: { transform: `translate(${props.dataNav ? "0px, 0px" : "0px, -925px"})` },
         config: { tension: 40, friction: 10 },
         delay: 100,
       })
@@ -377,7 +364,7 @@ const AnalyzeForm = (props) => {
                         onBlur={handleBlur}/>
                 </InputCont>
                 <InputCont style={{flexDirection: width <= 1551 ? "row-reverse": "row"}}>
-                  <WebSVG fill={activeFields.website || formData.website ? '#00ffd7' : '#7e98af'} />
+                  <WebSVG stroke={activeFields.website || formData.website ? '#00ffd7' : '#7e98af'} />
                     <Input 
                         placeholder=' URL/Web' 
                         type="url" 
@@ -387,7 +374,7 @@ const AnalyzeForm = (props) => {
                         onFocus={handleFocus}
                         onBlur={handleBlur}/>
                 </InputCont>
-                {/* <Text placeholder='Napište nám' name="info" value={formData.info} onChange={handleChange} />   */}
+                
                 </AnimatedFirstCont>
                       { width < 1551 ?
                       

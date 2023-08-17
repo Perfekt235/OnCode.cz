@@ -1,7 +1,6 @@
 import React ,{ useState } from 'react'
 import styled from 'styled-components'
 import MlineSvg from './MlineSvg'
-import { device } from '../../mediaQuery'
 import { isFirefox } from 'react-device-detect'
 import { useSpring, animated } from 'react-spring'
 
@@ -40,8 +39,9 @@ const FlexDiv = styled.div`
   height: 340px;
   justify-content: space-around;
   background: none;
+  z-index: 10;
 
-  @media(${device.tablet}){
+  @media(max-width: 900px){
     display: none;
   }
 

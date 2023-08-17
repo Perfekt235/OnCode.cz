@@ -82,12 +82,6 @@ const Index = () => {
   const [showLoader, setShowLoader] = useState(true);
   const [showNav, setShowNav] = useState(false);
   const [dataNav, setDataNav] = useState(false)
-
-
-  
-  
-
-  // zkontrolujeme, zda existuje cookie 'animationDone'
   
 
   const handleClick = (e) => {
@@ -162,7 +156,7 @@ const Index = () => {
           </Header>
 
           <Main>
-            <Hero />
+            <Hero handleClick={(e) => handleClick(e)} dataNav={dataNav} />
           </Main>
 
           <Footer></Footer>

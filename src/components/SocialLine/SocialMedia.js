@@ -3,7 +3,6 @@ import Line from './Line'
 import styled from 'styled-components'
 import Facebook from './SVGR/Facebook'
 import Instagram from './SVGR/Instagram'
-import { device } from '../../mediaQuery'
 import { isFirefox } from 'react-device-detect'
 import { animated, useSpring } from 'react-spring'
 
@@ -26,7 +25,6 @@ const GramInst = styled(Instagram)`
 
 
     &:hover {
-
         fill: #64ffda;
         transform: translate(0, -5px);
     }
@@ -55,10 +53,11 @@ const FlexDiv = styled.div`
     position: fixed;
     bottom: 0%;
     left: 14px;
+    z-index: 10;
     
     
 
-    @media(${device.tablet}){
+    @media(max-width: 900px){
         display: none;
       }
 

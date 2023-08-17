@@ -101,7 +101,7 @@ const TextCont = styled.div`
   }
 
   
-
+  
  
   
 
@@ -165,7 +165,9 @@ top: 297px;
 
 
 
-const Hero = () => {
+const Hero = ({ handleClick, dataNav }) => {
+
+
   return(
     <>
   <FlexCont>
@@ -177,7 +179,7 @@ const Hero = () => {
         <span style={{color: "#00ffd7"}}> Pomůžeme </span>Vám.<br/> Klikněnte na tlačítko <span style={{color: "#00ffd7"}}>Analýza zdarma</span> a společně zjistíme, jak si vedete</P>
       
       <BtnCont>
-        <Analyze JCon="start">Analýza zdarma</Analyze>
+        <Analyze handleClick={handleClick} dataNav={dataNav} JCon="start">Analýza zdarma</Analyze>
       </BtnCont>
       
     </TextCont>
