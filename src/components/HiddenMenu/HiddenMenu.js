@@ -10,18 +10,21 @@ import Analyze from '../Form/AnalyzeF/Analyze'
 
 
 const FlexCont = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 329px;
-    height: 359px;
-    position: fixed;
-    right: 0%;
-    background-color: rgb(0 0 0 / 19%);
-    text-align: center;
-    z-index: 4;
-    top:80px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  right: 0%;
+  background-color: rgba(0, 0, 0, 0.19);
+  text-align: center;
+  z-index: 4;
+  top: 80px;
+  backdrop-filter: blur(20px);
 
     
     
@@ -102,7 +105,7 @@ const HiddenMenu = (props) => {
   }, [setBlinkAnimation]);
 
   const Hidden = useSpring({
-    transform: props.isOpen ? "translateX(0px)" : 'translateX(430px)',
+    transform: props.isOpen ? "translateX(0px)" : 'translateX(750px)',
     config: {tension: 100, friction: 13 },
   })
 

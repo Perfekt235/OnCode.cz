@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Load from '../components/Load/Load'
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring';
@@ -11,6 +11,7 @@ import MailLine from '../components/SocialLine/MailLine';
 import { WidthProvider } from '../components/context/Width';
 import AnalyzeForm from '../components/Form/AnalyzeF/AnalyzeForm';
 import Hero from '../components/Hero/Hero';
+import Problem from '../Problem/Problem';
 
 
 
@@ -82,6 +83,14 @@ const Index = () => {
   const [showLoader, setShowLoader] = useState(true);
   const [showNav, setShowNav] = useState(false);
   const [dataNav, setDataNav] = useState(false)
+
+
+  const ScrollToProblem = useRef(null);
+
+
+  const handleScroll = ()=> {
+      ScrollToProblem.current.scrollIntoView({ behavior: 'smooth'})
+  }
   
 
   const handleClick = (e) => {
@@ -151,12 +160,13 @@ const Index = () => {
             <Nav handleClick={(e) => handleClick(e)} dataNav={dataNav} />
               <SocialMedia />
               <MailLine />
-              <AnalyzeForm dataNav={dataNav} />
+              <AnalyzeForm dataNav={dataNav}  handleClick={(e) => handleClick(e)} />
               
           </Header>
 
           <Main>
-            <Hero handleClick={(e) => handleClick(e)} dataNav={dataNav} />
+            <Hero handleScroll={handleScroll} handleClick = {(e) => handleClick(e)} dataNav={dataNav} />
+            <Problem ref={ScrollToProblem} />
           </Main>
 
           <Footer></Footer>

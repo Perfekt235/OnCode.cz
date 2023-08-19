@@ -49,7 +49,7 @@ const Arrows = styled(Lottie)`
 const ArrowsCont = styled.div`
   position: absolute;
     top: 881px;
-    left: 52%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     display: flex;
@@ -156,7 +156,7 @@ top: 297px;
 
 @media(max-width: 530px){
   top: 350px;
-  left: 40px;
+  left: 41px;
   
 }
 
@@ -165,7 +165,7 @@ top: 297px;
 
 
 
-const Hero = ({ handleClick, dataNav }) => {
+const Hero = ({ handleClick, dataNav, handleScroll }) => {
 
 
   return(
@@ -189,7 +189,7 @@ const Hero = ({ handleClick, dataNav }) => {
       
   </FlexCont>
   <ArrowsCont>
-    <Arrows animationData={ArrowsDown} loop={true}></Arrows>
+    <Arrows onClick={handleScroll} animationData={ArrowsDown} loop={true}></Arrows>
   </ArrowsCont>
    </> 
   )

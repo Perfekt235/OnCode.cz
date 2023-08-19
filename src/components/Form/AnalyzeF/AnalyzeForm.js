@@ -8,7 +8,7 @@ import InstaSVG from '../../../images/InstaSVG'
 import WebSVG from '../../../images/WebSVG'
 import { useWidth } from '../../context/Width'
 import { useSpring, animated } from 'react-spring';
-
+import End from '../../../images/End'
 
 
 
@@ -130,19 +130,24 @@ const DivCont = styled.div`
   background-image: linear-gradient(to top, rgb(0 174 175 / 20%) -28%, rgb(10 25 47) 100%);
   overflow: hidden;
 
-  @media(max-height: 667px) {
-    top: 50px;
-  }
+  
 
   @media(max-width: 1551px) {
     justify-content: end;
     width: 390px;
     margin: none;
+    top: 59px;
   }
 
   @media(max-height: 775px) {
     min-height: 12.6rem;
   }
+
+  @media(max-height: 667px) {
+    top: 50px;
+  }
+
+
 `
 
 
@@ -201,6 +206,16 @@ const Label = styled.label`
     font-size: 12px;
   }
   
+`
+
+const Kriz = styled(End)`
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  fill: rgb(0, 255, 215);
+  top: 93px;
+  left: 6px;
+  cursor: pointer;
 `
 
 
@@ -271,6 +286,10 @@ const AnalyzeForm = (props) => {
         config: { tension: 50, friction: 15 },
         delay: 1500,
       })
+
+      const handleSendData = () => {
+        props.handleClick(!props.dataNav);
+      }
     
   
     return (
@@ -280,7 +299,10 @@ const AnalyzeForm = (props) => {
         <input type="hidden" name="form-name" value="Analyze" />
 
         <input type="hidden" name="bot-field" />
-        { width >= 1551 ?
+
+        <Kriz onClick={handleSendData} />
+
+        { width > 1551 ?
         
         <AnimatedGDPR style={OpacityButt}>
               <Label>
@@ -376,7 +398,7 @@ const AnalyzeForm = (props) => {
                 </InputCont>
                 
                 </AnimatedFirstCont>
-                      { width < 1551 ?
+                      { width <= 1551 ?
                       
                       <AnimatedGDPR style={OpacityButt}>
                             <Label>
